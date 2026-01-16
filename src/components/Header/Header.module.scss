@@ -1,0 +1,119 @@
+.header {
+  position: fixed;        // 🔥 CRITICAL
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- Logo ---------- */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  img {
+    height: 42px;
+    width: 42px;
+    object-fit: contain;
+  }
+}
+
+.logoText {
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    color: #3d9d94;
+  }
+
+  span {
+    font-size: 11px;
+    color: #6b7280;
+  }
+}
+
+/* ---------- Navigation ---------- */
+
+.nav {
+  display: flex;
+  gap: 32px;
+
+  a {
+    text-decoration: none;
+    color: #111827;
+    font-size: 15px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #3d9d94;
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    display: none;
+  }
+}
+
+.active {
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+/* ---------- Actions ---------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.callBtn {
+  background: #3d9d94;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+
+  &:hover {
+    background: #339087;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.menuToggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}

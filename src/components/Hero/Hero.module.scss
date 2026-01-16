@@ -1,0 +1,185 @@
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #e6f5f3, #ecfdf5);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    align-items: center;
+  
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+  
+  /* ---------- Left Content ---------- */
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #e6f5f3;
+    color: #3d9d94;
+    font-size: 14px;
+    width: fit-content;
+  }
+  
+  h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    color: #111827;
+  
+    span {
+      color: #3d9d94;
+    }
+  
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+  
+  p {
+    font-size: 18px;
+    color: #4b5563;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+  
+  /* ---------- Buttons ---------- */
+  
+  .buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .primary {
+    background: #3d9d94;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+    &:hover {
+      background: #339087;
+    }
+  }
+  
+  .outline {
+    background: transparent;
+    color: #3d9d94;
+    border: 2px solid #3d9d94;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      background: #3d9d94;
+      color: #ffffff;
+    }
+  }
+  
+  /* ---------- Right Image ---------- */
+  
+  .imageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .imageWrapper img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 32px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  }
+  
+  /* ---------- Floating Card ---------- */
+  
+  .floatingCard {
+    position: absolute;
+    bottom: -24px;
+    right: 24px;
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  
+    p {
+      margin: 0;
+      font-size: 13px;
+      color: #6b7280;
+    }
+  
+    h4 {
+      margin: 0;
+      font-size: 15px;
+      color: #111827;
+    }
+  }
+  
+  .floatingIcon {
+    background: #e6f5f3;
+    color: #3d9d94;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  
+  /* ---------- Hero Stats ---------- */
+  
+  .stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 16px;
+  
+    div {
+      text-align: left;
+    }
+  
+    h3 {
+      margin: 0;
+      font-size: 24px;
+      color: #111827;
+    }
+  
+    p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  
+    @media (max-width: 768px) {
+      gap: 16px;
+    }
+  }
+  

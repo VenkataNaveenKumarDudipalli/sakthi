@@ -1,0 +1,128 @@
+.about {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #e6f5f3, #ecfdf5);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 24px;
+  }
+  
+  .imageWrapper {
+    position: relative;
+  }
+  
+  .image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .badgeIcon {
+    background: #fef3c7;
+    color: #ca8a04;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 28px;
+  }
+  
+  .badgeValue {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .badgeText {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: #3d9d94;
+    background: #e6f5f3;
+    width: fit-content;
+  }
+  
+  h2 {
+    font-size: 40px;
+    color: #111827;
+  
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+  }
+  
+  p {
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+  
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
+  }
+  
+  .feature {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  
+    svg {
+      color: #3d9d94;
+      font-size: 22px;
+      margin-top: 4px;
+    }
+  
+    h4 {
+      font-size: 18px;
+      margin: 0;
+      color: #111827;
+    }
+  
+    p {
+      margin: 4px 0 0;
+      font-size: 14px;
+    }
+  }
+  
+  .cta {
+    background: #3d9d94;
+    border-radius: 999px;
+    padding: 12px 32px;
+    margin-top: 16px;
+    border: none;
+  
+    &:hover {
+      background: #339087;
+    }
+  }
+  

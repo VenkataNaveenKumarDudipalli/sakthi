@@ -1,0 +1,135 @@
+.footer {
+    background: #111827;
+    color: #d1d5db;
+    padding: 64px 0 32px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 24px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 48px;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .brand {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  
+  .brandName {
+    font-size: 18px;
+    color: #3d9d94;
+  }
+  
+  .brandSub {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+  
+  .text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .socials {
+    display: flex;
+    gap: 12px;
+  
+    a {
+      background: #3d9d94;
+      color: #fff;
+      padding: 8px;
+      border-radius: 50%;
+      font-size: 16px;
+    }
+  }
+  
+  h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  
+    li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+  
+    a {
+      color: #9ca3af;
+  
+      &:hover {
+        color: #3d9d94;
+      }
+    }
+  }
+  
+  .newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .bottom {
+    border-top: 1px solid #1f2937;
+    padding-top: 24px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  
+    p {
+      font-size: 13px;
+    }
+  }
+  
+  .madeWith {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  
+    svg {
+      color: #3d9d94;
+    }
+  }
+  
+  .links {
+    display: flex;
+    gap: 24px;
+  
+    a {
+      font-size: 13px;
+      color: #9ca3af;
+  
+      &:hover {
+        color: #3d9d94;
+      }
+    }
+  }
+  
