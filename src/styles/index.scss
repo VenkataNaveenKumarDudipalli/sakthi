@@ -1,0 +1,25 @@
+@use "./variables" as *;
+@use "./antd-overrides";
+
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--header-bg);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* AntD Layout */
+.app-layout {
+  min-height: 100vh;
+}
+
+/* Push content below fixed header */
+.app-content {
+  margin-top: var(--header-height);
+}

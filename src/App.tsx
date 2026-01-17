@@ -8,16 +8,13 @@ import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
-
 const { Content } = Layout;
 
 const App = () => {
   return (
     <Layout className="app-layout">
-      {/* FIXED HEADER */}
       <Header />
 
-      {/* SCROLLABLE CONTENT */}
       <Content className="app-content">
         <Hero />
         <Services />
