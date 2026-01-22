@@ -1,25 +1,127 @@
 :root {
-   --primary-color: #3d9d94;
-   --primary-hover: #339087;
- 
-   --header-bg: #ffffff;
-   --header-border: rgba(0, 0, 0, 0.06);
- 
-   --text-primary: #1f2937;
-   --text-secondary: #6b7280;
- 
-   --header-height: 84px;
-   --container-width: 1280px;
- }
- 
- [data-theme='dark'] {
-   --primary-color: #5fd1c9;
-   --primary-hover: #45b7af;
- 
-   --header-bg: #020617;
-   --header-border: #1e293b;
- 
-   --text-primary: #f8fafc;
-   --text-secondary: #94a3b8;
- }
- 
+  /* ===============================
+     Layout
+  =============================== */
+  --container-width: 1280px;
+  --topbar-height: 45px;
+  --header-height: 80px;
+
+  /* ===============================
+     Brand
+  =============================== */
+  --primary-color: #3d9d94;
+  --primary-hover: #339087;
+
+  /* ===============================
+     Header
+  =============================== */
+  --header-bg: #ffffff;
+  --header-border: rgba(0, 0, 0, 0.06);
+
+  /* ===============================
+     Text
+  =============================== */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+
+  /* ===============================
+     Footer (DARK LOOK in LIGHT MODE)
+  =============================== */
+  --footer-bg-start: #020617;
+  --footer-bg-end: #020617;
+
+  --footer-text-primary: #f8fafc;
+  --footer-text-secondary: #94a3b8;
+  --footer-border: rgba(255, 255, 255, 0.08);
+
+  --footer-input-bg: #0f172a;
+  --footer-input-border: #1e293b;
+
+  /* ===============================
+     Contact
+  =============================== */
+  --contact-bg-start: #e6f5f3;
+  --contact-bg-end: #ecfdf5;
+
+  --contact-card-bg: #ffffff;
+  --contact-text-primary: #111827;
+  --contact-text-secondary: #4b5563;
+
+  --contact-input-bg: #ffffff;
+  --contact-input-border: #d1d5db;
+  --contact-accent-bg: #e6f5f3;
+
+  /* ===============================
+     Testimonials
+  =============================== */
+  --testimonials-bg: #ffffff;
+
+  --testimonials-text-primary: #111827;
+  --testimonials-text-secondary: #4b5563;
+  --testimonials-text-body: #374151;
+  --testimonials-text-muted: #6b7280;
+
+  --testimonials-accent-bg: #e6f5f3;
+  --testimonials-card-bg-start: #e6f5f3;
+  --testimonials-card-bg-end: #ecfdf5;
+  --testimonials-card-inner-bg: #ffffff;
+
+  /* ===============================
+     Services
+  =============================== */
+  --services-bg: #ffffff;
+  --services-text-primary: #111827;
+  --services-text-secondary: #4b5563;
+  --services-accent-bg: #e6f5f3;
+  --services-card-bg: #ffffff;
+
+  /* ===============================
+     About
+  =============================== */
+  --about-bg-start: #e6f5f3;
+  --about-bg-end: #ecfdf5;
+
+  --about-card-bg: #ffffff;
+  --about-text-primary: #111827;
+  --about-text-secondary: #4b5563;
+  --about-text-muted: #6b7280;
+
+  --about-accent-bg: #e6f5f3;
+  --about-badge-icon-bg: #fef3c7;
+  --about-badge-icon-color: #ca8a04;
+}
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+[data-theme='dark'] {
+  --header-bg: #020617;
+  --header-border: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  /* Brand stays same */
+  --primary-color: #3d9d94;
+  --primary-hover: #339087;
+
+  /* Footer becomes LIGHT in dark mode (intentional) */
+  --footer-bg-start: #f8fafc;
+  --footer-bg-end: #f8fafc;
+
+  --footer-text-primary: #0f172a;
+  --footer-text-secondary: #475569;
+  --footer-border: rgba(15, 23, 42, 0.08);
+
+  --footer-input-bg: #ffffff;
+  --footer-input-border: #d1d5db;
+
+  /* Sections intentionally light */
+  --contact-bg-start: #e6f5f3;
+  --contact-bg-end: #ecfdf5;
+
+  --services-bg: #ffffff;
+  --about-bg-start: #e6f5f3;
+  --about-bg-end: #ecfdf5;
+}

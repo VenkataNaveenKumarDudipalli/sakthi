@@ -7,14 +7,19 @@ import About from './components/About/About';
 import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import TopInfoBar from './components/TopInfoBar/TopInfoBar';
 
 const { Content } = Layout;
 
 const App = () => {
   return (
     <Layout className="app-layout">
+      <section>
+         <TopInfoBar />
       <Header />
 
+      </section>
+     
       <Content className="app-content">
         <Hero />
         <Services />

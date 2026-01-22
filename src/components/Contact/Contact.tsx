@@ -1,4 +1,4 @@
-import { Row, Col, Form, Input, Button } from 'antd';
+import { Row, Col } from 'antd';
 import {
   EnvironmentOutlined,
   PhoneOutlined,
@@ -7,102 +7,75 @@ import {
 } from '@ant-design/icons';
 
 import styles from './Contact.module.scss';
+import hospitalImg from '@/assets/contact/hospital.png'; // adjust path
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
-        {/* Section Header */}
+        {/* Header */}
         <div className={styles.header}>
           <span className={styles.tag}>Get In Touch</span>
           <h2>Contact Us</h2>
-          <p>We're here for your child's health. Reach out to us anytime.</p>
+          <p>
+            We’re always here to support your child’s health and well-being.
+          </p>
         </div>
 
-        <Row gutter={[48, 48]}>
-          {/* Contact Form */}
+        <Row gutter={[ 80,40]} align="middle">
+          {/* Image */}
           <Col xs={24} md={12}>
-            <div className={styles.card}>
-              <h3>Send us a message</h3>
-
-              <Form layout="vertical">
-                <Form.Item label="Parent / Guardian Name" name="name">
-                  <Input placeholder="Your name" />
-                </Form.Item>
-
-                <Form.Item label="Email Address" name="email">
-                  <Input placeholder="your@email.com" />
-                </Form.Item>
-
-                <Form.Item label="Phone Number" name="phone">
-                  <Input placeholder="+91 00000 00000" />
-                </Form.Item>
-
-                <Form.Item label="Message" name="message">
-                  <Input.TextArea rows={4} placeholder="Tell us how we can help your child..." />
-                </Form.Item>
-
-                <Button type="primary" size="large" block>
-                  Send Message
-                </Button>
-              </Form>
+            <div className={styles.imageWrapper}>
+              <img
+                src={hospitalImg}
+                alt="Sakthi Children's Hospital"
+              />
             </div>
           </Col>
 
-          {/* Contact Info */}
+          {/* Info */}
           <Col xs={24} md={12}>
             <div className={styles.info}>
               <div className={styles.infoCard}>
-                <div className={styles.icon}>
-                  <EnvironmentOutlined />
-                </div>
+                <EnvironmentOutlined />
                 <div>
                   <h4>Visit Us</h4>
                   <p>
-                    Sakthi Children's Hospital<br />
-                    123 Medical Street, Chennai<br />
-                    Tamil Nadu 600001, India
+                    Sakthi Children’s Hospital<br />
+                    Kandukur, Prakasam District<br />
+                    Andhra Pradesh, India
                   </p>
                 </div>
               </div>
 
               <div className={styles.infoCard}>
-                <div className={styles.icon}>
-                  <PhoneOutlined />
-                </div>
+                <PhoneOutlined />
                 <div>
                   <h4>Call Us</h4>
                   <p>
-                    +91 44 1234 5678<br />
-                    +91 98765 43210<br />
-                    Emergency: +91 98765 00000
+                    +91 94411 25999<br />
+                    24/7 Emergency Services
                   </p>
                 </div>
               </div>
 
               <div className={styles.infoCard}>
-                <div className={styles.icon}>
-                  <MailOutlined />
-                </div>
+                <MailOutlined />
                 <div>
                   <h4>Email Us</h4>
                   <p>
-                    info@sakthihospital.com<br />
-                    appointments@sakthihospital.com
+                    info@sakthichildrenshospital.com
                   </p>
                 </div>
               </div>
 
               <div className={styles.infoCard}>
-                <div className={styles.icon}>
-                  <ClockCircleOutlined />
-                </div>
+                <ClockCircleOutlined />
                 <div>
                   <h4>Working Hours</h4>
                   <p>
-                    Mon - Sat: 8:00 AM - 8:00 PM<br />
-                    Sunday: 9:00 AM - 5:00 PM<br />
-                    24/7 Emergency Services
+                    Mon – Sat: 8:00 AM – 8:00 PM<br />
+                    Sunday: 9:00 AM – 5:00 PM
                   </p>
                 </div>
               </div>

@@ -5,8 +5,9 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     react(),
-    tailwindcss(), // ← REQUIRED for v4
+   // ← REQUIRED for v4
   ],
   resolve: {
     alias: {
