@@ -1,18 +1,14 @@
-
 @use "./variables" as *;
 @use "./antd-overrides";
 
-
-
-
-
-
-
-
+/* =================================
+   Base Reset
+================================= */
 html,
 body,
 #root {
   height: 100%;
+  margin: 0;
 }
 
 html,
@@ -20,53 +16,90 @@ body {
   overflow-x: hidden;
 }
 
-/* AntD slick width bug */
-.slick-track {
-  display: flex !important;
-}
-
-
 body {
   background: var(--header-bg);
   color: var(--text-primary);
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* AntD Layout */
+/* =================================
+   Layout
+================================= */
 .app-layout {
   min-height: 100vh;
 }
 
-/* Push content below fixed header */
+/* Fixed header wrapper (TopInfoBar + Header) */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Push routed content below fixed bars */
 .app-content {
   margin-top: calc(var(--topbar-height) + var(--header-height));
 }
 
+/* =================================
+   Ant Design Fixes
+================================= */
 
+/* Slick carousel width bug */
+.slick-track {
+  display: flex !important;
+}
 
+/* Remove AntD Layout background bleed */
+.ant-layout {
+  background: transparent;
+}
+
+/* =================================
+   Header Menu (Hover only)
+================================= */
 .headerNav {
   background: transparent !important;
   border-bottom: none !important;
+
+  .ant-menu {
+    background: transparent !important;
+    border-bottom: none !important;
+  }
 
   .ant-menu-item {
     color: var(--text-primary);
     font-weight: 500;
     transition: color 0.2s ease;
+    margin: 0 4px;
   }
 
-  /* Hover only */
+  /* Hover color only */
   .ant-menu-item:hover {
     color: var(--primary-color);
   }
 
-  /* Kill selected styles completely */
+  /* Kill selected state completely */
   .ant-menu-item-selected {
-    color: inherit !important;
+    color: var(--text-primary) !important;
     background: transparent !important;
   }
 
+  /* Kill underline */
   .ant-menu-item::after,
   .ant-menu-item-selected::after {
+    display: none !important;
     border-bottom: none !important;
+  }
+}
+
+/* =================================
+   Mobile Adjustments
+================================= */
+@media (max-width: 768px) {
+  .app-content {
+    margin-top: calc(var(--topbar-height) + var(--header-height));
   }
 }

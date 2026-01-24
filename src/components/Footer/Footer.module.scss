@@ -1,86 +1,104 @@
-/* ================================
-   Footer Root
-================================ */
 .footer {
   background: linear-gradient(
     180deg,
-    var(--footer-bg-start) 0%,
-    var(--footer-bg-end) 100%
+    var(--footer-bg-start),
+    var(--footer-bg-end)
   );
-  border-top: 1px solid var(--footer-border);
-  padding: 72px 0 32px;
+  color: var(--footer-text-primary);
+  padding: 64px 0 32px;
 }
 
-/* ================================
-   Grid Layout
-================================ */
+.container {
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================= Grid ================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
+  gap: 40px;
 }
 
-/* ================================
-   Brand Section
-================================ */
+/* ================= Brand ================= */
 .brand {
   display: flex;
-  gap: 12px;
   align-items: center;
-  margin-bottom: 12px;
+  gap: 12px;
 
   img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
+    width: 48px;
+    height: 48px;
   }
 }
 
 .brandName {
   font-size: 18px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--footer-text-primary);
 }
 
 .brandSub {
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 12px;
   color: var(--footer-text-secondary);
 }
 
-/* ================================
-   Typography
-================================ */
-.title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--footer-text-primary);
-  margin-bottom: 16px;
-}
-
+/* ================= Text ================= */
 .text {
-  font-size: 15px;
+  margin-top: 16px;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--footer-text-secondary);
-  margin-top: 14px;
 }
 
-/* ================================
-   Lists
-================================ */
+/* ================= Social ================= */
+.socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+
+  a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-text-primary);
+    font-size: 18px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: var(--primary-color);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* ================= Titles ================= */
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--footer-text-primary);
+}
+
+/* ================= Lists ================= */
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
 
   li {
-    font-size: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
     color: var(--footer-text-secondary);
-    margin-bottom: 12px;
 
     a {
       color: inherit;
-      transition: color 0.2s ease;
+      text-decoration: none;
 
       &:hover {
         color: var(--primary-color);
@@ -89,91 +107,36 @@
   }
 }
 
-/* ================================
-   Social Icons
-================================ */
-.socials {
-  display: flex;
-  gap: 16px;
-  margin-top: 24px;
-
-  a {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    color: #fff;
-    font-size: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: background 0.2s ease, transform 0.2s ease;
-
-    &:hover {
-      background: var(--primary-hover);
-      transform: translateY(-2px);
-    }
-  }
-}
-
-/* ================================
-   Newsletter
-================================ */
+/* ================= Newsletter ================= */
 .newsletter {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 14px;
 
-  /* Ant Design Input override */
-  .ant-input {
+  :global(.ant-input) {
     background: var(--footer-input-bg);
     border: 1px solid var(--footer-input-border);
     color: var(--footer-text-primary);
-    border-radius: 14px;
-    padding: 14px 16px;
-    font-size: 15px;
 
     &::placeholder {
       color: var(--footer-text-secondary);
     }
-
-    &:focus,
-    &:focus-visible {
-      border-color: var(--primary-color);
-      box-shadow: none;
-    }
   }
 }
 
-/* ================================
-   Primary Button (AntD)
-================================ */
 .primaryBtn {
-  height: 52px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 600;
-
-  background: var(--primary-color) !important;
-  border-color: var(--primary-color) !important;
-  color: #fff !important;
-
-  transition: background 0.2s ease;
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
 
   &:hover {
-    background: var(--primary-hover) !important;
-    border-color: var(--primary-hover) !important;
+    background: var(--primary-hover);
   }
 }
 
-/* ================================
-   Bottom Bar
-================================ */
+/* ================= Bottom ================= */
 .bottom {
-  margin-top: 56px;
+  margin-top: 48px;
   padding-top: 24px;
   border-top: 1px solid var(--footer-border);
 
@@ -181,34 +144,50 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  flex-wrap: wrap;
 
-  font-size: 14px;
-  color: var(--footer-text-secondary);
+  p {
+    font-size: 13px;
+    color: var(--footer-text-secondary);
+  }
 }
 
-/* ================================
-   Made With
-================================ */
 .madeWith {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-size: 13px;
+  color: var(--footer-text-secondary);
 
   svg {
-    color: var(--primary-color);
+    color: #ef4444;
   }
 }
 
-/* ================================
-   Footer Links
-================================ */
-.links {
-  display: flex;
-  gap: 20px;
+.developer {
+  font-size: 13px;
+  color: var(--footer-text-secondary);
 
   a {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  gap: 16px;
+
+  a {
+    font-size: 13px;
     color: var(--footer-text-secondary);
-    transition: color 0.2s ease;
+    text-decoration: none;
 
     &:hover {
       color: var(--primary-color);
@@ -216,18 +195,10 @@
   }
 }
 
-/* ================================
-   Responsive
-================================ */
+/* ================= Responsive ================= */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
-
-  .bottom {
-    flex-direction: column;
-    text-align: center;
   }
 }
 
@@ -236,11 +207,8 @@
     grid-template-columns: 1fr;
   }
 
-  .socials {
-    justify-content: center;
-  }
-
   .bottom {
-    gap: 12px;
+    flex-direction: column;
+    text-align: center;
   }
 }

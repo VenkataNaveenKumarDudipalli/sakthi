@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -8,26 +9,52 @@ import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import TopInfoBar from './components/TopInfoBar/TopInfoBar';
+import WhatsAppFloat from './components/WhatsappFloat/WhatsappFloat';
+
+import PrivacyPolicy from './components/Terms/PrivacyPolicy/PrivacyAndPolicy';
+import TermsAndConditions from './components/Terms/TermsCondition/TermsAndCondition';
+import LearnMore from './components/Terms/LearnMore/LearnMore';
 
 const { Content } = Layout;
 
 const App = () => {
   return (
     <Layout className="app-layout">
-      <section>
-         <TopInfoBar />
-      <Header />
+      {/* Fixed Header Area */}
+      <div className="fixed-header">
+        <TopInfoBar />
+        <Header />
+      </div>
 
-      </section>
-     
+      {/* Routed Content */}
       <Content className="app-content">
-        <Hero />
-        <Services />
-        <About />
-        <Testimonials />
-        <Contact />
-        <Footer />
+        <Routes>
+          {/* Home */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Services />
+                <About />
+                <Testimonials />
+                <Contact />
+              </>
+            }
+          />
+
+          {/* Legal Pages */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route path="/learn-more" element={<LearnMore />} />
+        </Routes>
       </Content>
+
+      <Footer />
+      <WhatsAppFloat />
     </Layout>
   );
 };

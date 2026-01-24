@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './Hero.module.scss';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
+
 
 const slides = [
   {
@@ -22,6 +24,8 @@ const slides = [
 ];
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -63,9 +67,11 @@ const Hero = () => {
               <button className={styles.primary}>
                 Make Appointment
               </button>
-              <button className={styles.secondary}>
-                Learn More
-              </button>
+              <button className={styles.secondary}
+  onClick={() => navigate('/learn-more')}
+>
+  Learn More
+</button>
             </div>
           </div>
         </div>

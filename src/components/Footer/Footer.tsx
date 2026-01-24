@@ -6,9 +6,10 @@ import {
   LinkedinOutlined,
   HeartFilled,
 } from "@ant-design/icons";
+import { Link } from 'react-router-dom';
 
 import styles from "./Footer.module.scss";
-import logo from '@/assets/sakthiLogo.png';
+import logo from "@/assets/sakthiLogo.png";
 
 const { Footer: AntFooter } = Layout;
 
@@ -16,10 +17,10 @@ export default function Footer() {
   return (
     <AntFooter className={styles.footer}>
       <div
-        className="mx-auto px-4 sm:px-6 lg:px-8"
+        className={styles.container}
         style={{ maxWidth: "var(--container-width)" }}
       >
-        {/* Main content */}
+        {/* ================= Main Grid ================= */}
         <div className={styles.grid}>
           {/* About */}
           <div>
@@ -77,14 +78,12 @@ export default function Footer() {
 
             <div className={styles.newsletter}>
               <Input placeholder="Your email" />
-              <Button className={styles.primaryBtn}>
-                Subscribe
-              </Button>
+              <Button className={styles.primaryBtn}>Subscribe</Button>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* ================= Bottom Bar ================= */}
         <div className={styles.bottom}>
           <p>© 2026 Sakthi Children's Hospital. All rights reserved.</p>
 
@@ -94,9 +93,20 @@ export default function Footer() {
             <span>for children's health</span>
           </div>
 
+          <div className={styles.developer}>
+            Developed by{" "}
+            <a
+              href="https://www.linkedin.com/in/venkata-naveen-kumar-dudipalli-8b0117135"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Venkata Naveen
+            </a>
+          </div>
+
           <div className={styles.links}>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+           <Link to="/privacy-policy">Privacy Policy</Link>
+<Link to="/terms-and-conditions">Terms & Conditions</Link>
           </div>
         </div>
       </div>
