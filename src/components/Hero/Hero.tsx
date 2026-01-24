@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Hero.module.scss';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import AppointmentModal from '../Modals/AppointmentModal';
 
 
 const slides = [
@@ -25,6 +26,7 @@ const slides = [
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
 
   const [index, setIndex] = useState(0);
 
@@ -43,6 +45,7 @@ const Hero = () => {
     setIndex((prev) => (prev + 1) % slides.length);
 
   return (
+    
     <section className={styles.hero} id="home">
       {slides.map((slide, i) => (
         <div
@@ -64,7 +67,11 @@ const Hero = () => {
             <p>{slide.description}</p>
 
             <div className={styles.buttons}>
-              <button className={styles.primary}>
+              <button className={styles.primary} 
+               onClick={() => {
+              setAppointmentOpen(true);
+            }}
+              >
                 Make Appointment
               </button>
               <button className={styles.secondary}
@@ -84,6 +91,13 @@ const Hero = () => {
       <button className={styles.next} onClick={nextSlide}>
         <ArrowRightOutlined />
       </button>
+
+           {/* Appointment Modal */}
+      <AppointmentModal
+        open={appointmentOpen}
+        onClose={() => setAppointmentOpen(false)}
+      />
+
     </section>
   );
 };
