@@ -14,6 +14,7 @@ import WhatsAppFloat from './components/WhatsappFloat/WhatsappFloat';
 import PrivacyPolicy from './components/Terms/PrivacyPolicy/PrivacyAndPolicy';
 import TermsAndConditions from './components/Terms/TermsCondition/TermsAndCondition';
 import LearnMore from './components/Terms/LearnMore/LearnMore';
+import ScrollToTop from './components/Scroll/Scroll';
 
 const { Content } = Layout;
 
@@ -24,6 +25,7 @@ const App = () => {
       <div className="fixed-header">
         <TopInfoBar />
         <Header />
+        <ScrollToTop />
       </div>
 
       {/* Routed Content */}

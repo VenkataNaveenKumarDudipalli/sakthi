@@ -1,6 +1,7 @@
 import styles from '../Legal.module.scss';
 
 const PrivacyPolicy = () => {
+
   return (
     <section className={styles.legal}>
       <div className={styles.container}>

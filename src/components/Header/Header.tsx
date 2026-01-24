@@ -3,6 +3,8 @@ import styles from './Header.module.scss';
 import logo from '@/assets/sakthiLogo.png';
 import React, { useState } from 'react';
 import AppointmentModal from '../Modals/AppointmentModal';
+import { Link } from "react-router-dom";
+
 
 const Header: React.FC = () => {
   const [appointmentOpen, setAppointmentOpen] = useState(false);
@@ -24,11 +26,11 @@ const Header: React.FC = () => {
 
         {/* Desktop Menu */}
         <nav className={styles.headerNav}>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact</a>
+           <Link to="/#home" onClick={closeMenu}>Home</Link>
+<Link to="/#services" onClick={closeMenu}>Services</Link>
+<Link to="/#about" onClick={closeMenu}>About</Link>
+<Link to="/#testimonials" onClick={closeMenu}>Testimonials</Link>
+<Link to="/#contact" onClick={closeMenu}>Contact</Link>
         </nav>
 
         {/* Book Appointment */}
@@ -52,11 +54,12 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          <a href="#home" onClick={closeMenu}>Home</a>
-          <a href="#services" onClick={closeMenu}>Services</a>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
+        <Link to="/#home" onClick={closeMenu}>Home</Link>
+<Link to="/#services" onClick={closeMenu}>Services</Link>
+<Link to="/#about" onClick={closeMenu}>About</Link>
+<Link to="/#testimonials" onClick={closeMenu}>Testimonials</Link>
+<Link to="/#contact" onClick={closeMenu}>Contact</Link>
+
 
           <button
             className={styles.mobileAppointment}
