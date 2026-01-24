@@ -1,6 +1,5 @@
 import { WhatsAppOutlined } from '@ant-design/icons';
-import styles from './WhatsAppFloat.module.scss';
-
+import styles from './WhatsappFloat.module.scss';
 const WHATSAPP_NUMBER = '919441125999'; // no +, no spaces
 const MESSAGE = 'Hello Sakthi Children’s Hospital, I would like to know more.';
 
