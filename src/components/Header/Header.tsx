@@ -1,89 +1,80 @@
-import { useState } from 'react';
-import { Menu, Drawer, Button } from 'antd';
-import { MenuOutlined, PhoneOutlined } from '@ant-design/icons';
-
-import './Header.scss';
+import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import styles from './Header.module.scss';
 import logo from '@/assets/sakthiLogo.png';
+import React, { useState } from 'react';
+import AppointmentModal from '../Modals/AppointmentModal';
 
-const navItems = [
-  { key: 'home', label: <a href="#home">Home</a> },
-  { key: 'services', label: <a href="#services">Services</a> },
-  { key: 'about', label: <a href="#about">About</a> },
-  { key: 'testimonials', label: <a href="#testimonials">Testimonials</a> },
-  { key: 'contact', label: <a href="#contact">Contact</a> },
-];
+const Header: React.FC = () => {
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-const Header = () => {
-  const [open, setOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className="header">
-      <div className="headerContainer">
-
-        {/* Logo – always visible */}
-        <div className="logo">
-          <img src={logo} alt="Sakthi Childrens Hospital" />
-          <div className="logoText">
-            <div className="title">SAKTHI</div>
-            <div className="subtitle">CHILDRENS HOSPITAL</div>
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
+        {/* Logo */}
+        <div className={styles.logo}>
+          <img src={logo} alt="Sakthi Children's Hospital" />
+          <div className={styles.logoText}>
+            <div className={styles.title}>SAKTHI</div>
+            <div className={styles.subtitle}>CHILDREN’S HOSPITAL</div>
           </div>
         </div>
 
-        {/* MENU + CALL → ≥ 920px */}
-        <div className="hidden tab:flex headerNav">
-          <Menu
-            mode="horizontal"
-            items={navItems}
-            overflowedIndicator={null}
-          />
-        </div>
+        {/* Desktop Menu */}
+        <nav className={styles.headerNav}>
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-        <div className="hidden tab:flex">
-          <Button
-            type="primary"
-            shape="round"
-            size="large"
-            icon={<PhoneOutlined />}
-            href="tel:+919999999999"
-            className="callBtn"
-          >
-            Call Now
-          </Button>
-        </div>
-
-        {/* HAMBURGER → < 920px */}
+        {/* Book Appointment */}
         <button
-          className="tab:hidden hamburger"
-          aria-label="Open menu"
-          onClick={() => setOpen(true)}
+          className={styles.appointmentBtn}
+          onClick={() => setAppointmentOpen(true)}
         >
-          <MenuOutlined />
+          Book Appointment
         </button>
 
+        {/* Hamburger */}
+        <button
+          className={styles.hamburger}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <CloseOutlined /> : <MenuOutlined />}
+        </button>
       </div>
 
-      {/* Drawer for < 920px */}
-      <Drawer
-        placement="right"
-        open={open}
-        onClose={() => setOpen(false)}
-      >
-        <Menu
-          mode="vertical"
-          items={navItems}
-          onClick={() => setOpen(false)}
-        />
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <a href="#home" onClick={closeMenu}>Home</a>
+          <a href="#services" onClick={closeMenu}>Services</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
 
-        <Button
-          type="primary"
-          block
-          icon={<PhoneOutlined />}
-          href="tel:+919999999999"
-          className="mt-6 callBtn"
-        >
-          Call Now
-        </Button>
-      </Drawer>
+          <button
+            className={styles.mobileAppointment}
+            onClick={() => {
+              closeMenu();
+              setAppointmentOpen(true);
+            }}
+          >
+            Book Appointment
+          </button>
+        </div>
+      )}
+
+      {/* Appointment Modal */}
+      <AppointmentModal
+        open={appointmentOpen}
+        onClose={() => setAppointmentOpen(false)}
+      />
     </header>
   );
 };

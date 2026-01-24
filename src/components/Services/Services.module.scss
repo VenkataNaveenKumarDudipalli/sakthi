@@ -1,85 +1,122 @@
+/* ================================
+   Section
+================================ */
 .services {
-    padding: 80px 0;
-    background: #ffffff;
+  padding: 60px 0;
+  background: var(--services-bg);
+}
+
+/* ================================
+   Container
+================================ */
+.container {
+  max-width: var(--container-width);
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* ================================
+   Header
+================================ */
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+
+  h2 {
+    font-size: 40px;
+    color: var(--testimonials-text-primary);
+    margin-bottom: 16px;
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 24px;
+
+  p {
+    font-size: 18px;
+    color: var(--testimonials-text-secondary);
+    text-align: center;   // ✅ THIS IS THE KEY
+    margin: 0 auto;       // optional, safe
   }
-  
-  .header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 64px;
-  
-    h2 {
-      font-size: 40px;
-      color: #111827;
-      margin-bottom: 16px;
-    }
-  
-    p {
-      font-size: 18px;
-      color: #4b5563;
-    }
+}
+
+
+/* ================================
+   Tag
+================================ */
+.tag {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--services-accent-bg);
+  color: var(--primary-color);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* ================================
+   Card
+================================ */
+.card {
+  height: 100%;
+  border-radius: 24px;
+  padding: 8px;
+  cursor: pointer;
+  background: var(--services-card-bg);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
   }
-  
-  .tag {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 999px;
-    background: #e6f5f3;
-    color: #3d9d94;
+
+  /* AntD Card body */
+  .ant-card-body {
+    padding: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--services-text-primary);
+  }
+
+  p {
     font-size: 14px;
-    margin-bottom: 16px;
+    color: var(--services-text-secondary);
+    line-height: 1.6;
   }
-  
+}
+
+/* ================================
+   Icon
+================================ */
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--services-accent-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: var(--primary-color);
+
+  transition: transform 0.3s ease;
+
+  .ant-card:hover & {
+    transform: scale(1.1);
+  }
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+  .header h2 {
+    font-size: 32px;
+  }
+
   .card {
-    height: 100%;
-    border-radius: 24px;
-    padding: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  
-    &:hover {
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      transform: translateY(-4px);
-    }
-  
-    .ant-card-body {
-      padding: 24px;
-    }
-  
-    h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #111827;
-    }
-  
-    p {
-      font-size: 14px;
-      color: #4b5563;
-      line-height: 1.6;
-    }
+    border-radius: 20px;
   }
-  
-  .icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: #e6f5f3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    font-size: 24px;
-    color: #3d9d94;
-    transition: transform 0.3s ease;
-  
-    .ant-card:hover & {
-      transform: scale(1.1);
-    }
-  }
-  
+}

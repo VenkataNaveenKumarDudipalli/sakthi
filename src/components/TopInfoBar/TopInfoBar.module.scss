@@ -1,0 +1,81 @@
+.topBar {
+  background: var(--primary-color); // Sakthi teal
+  color: #ffffff;
+  font-size: 14px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 99%;
+  z-index: 1000;
+  height: var(--topbar-height);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 8px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+      height: 100%;
+
+}
+
+/* ===============================
+   Location
+=============================== */
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ===============================
+   Phone
+=============================== */
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    font-size: 16px;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ===============================
+   Mobile
+=============================== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    padding: 6px 16px;
+  }
+}

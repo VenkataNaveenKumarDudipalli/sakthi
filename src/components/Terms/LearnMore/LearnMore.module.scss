@@ -1,0 +1,170 @@
+.learnMore {
+  background: linear-gradient(
+    135deg,
+    var(--about-bg-start),
+    var(--about-bg-end)
+  );
+  padding: 72px 0 96px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* ================= Header ================= */
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+
+  h1 {
+    font-size: 40px;
+    color: var(--about-text-primary);
+    margin: 16px 0;
+  }
+
+  p {
+    color: var(--about-text-secondary);
+    line-height: 1.7;
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--about-accent-bg);
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* ================= Mission ================= */
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-bottom: 72px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  border-left: 6px solid var(--primary-color);
+
+  h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: var(--about-text-primary);
+  }
+
+  p {
+    color: var(--about-text-secondary);
+    line-height: 1.7;
+  }
+}
+
+.secondary {
+  border-left-color: #f59e0b;
+}
+
+/* ================= Trust ================= */
+.trust {
+  text-align: center;
+  margin-bottom: 72px;
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--about-text-primary);
+  }
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.trustCard {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+
+  h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--about-text-secondary);
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* ================= CTA ================= */
+.cta {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-radius: 28px;
+  padding: 56px 32px;
+  text-align: center;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    opacity: 0.9;
+    margin-bottom: 24px;
+  }
+
+  button {
+    background: #ffffff;
+    color: var(--primary-color);
+    border: none;
+    padding: 14px 36px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: #f1fdfb;
+    }
+  }
+}
+
+/* ================= Mobile ================= */
+@media (max-width: 768px) {
+  .missionGrid,
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .cta h2 {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,39 @@
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #25d366; // WhatsApp official green
+  color: #ffffff;
+  font-size: 28px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Mobile safe spacing */
+@media (max-width: 768px) {
+  .whatsapp {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
+}
