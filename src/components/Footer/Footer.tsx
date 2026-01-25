@@ -1,9 +1,8 @@
 import { Layout, Input, Button } from "antd";
 import {
   FacebookOutlined,
-  TwitterOutlined,
   InstagramOutlined,
-  LinkedinOutlined,
+
   HeartFilled,
 } from "@ant-design/icons";
 import { Link } from 'react-router-dom';
