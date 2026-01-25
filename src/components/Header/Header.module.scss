@@ -1,13 +1,13 @@
 .header {
-  position: fixed;
+ // position: fixed;
   top: var(--topbar-height);
   left: 0;
-  width: 99%;
+  width: 100%;
   height: var(--header-height);
 
   background: var(--header-bg);
   border-bottom: 1px solid var(--header-border);
-  z-index: 900;
+ // z-index: 900;
 }
 
 .headerContainer {

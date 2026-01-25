@@ -38,10 +38,12 @@ export default function Footer() {
             </p>
 
             <div className={styles.socials}>
-              <a href="#"><FacebookOutlined /></a>
-              <a href="#"><TwitterOutlined /></a>
-              <a href="#"><InstagramOutlined /></a>
-              <a href="#"><LinkedinOutlined /></a>
+              <a   href="https://www.facebook.com/sakthi.children.s.hospital/"
+              target="_blank"
+              rel="noopener noreferrer"><FacebookOutlined /></a>
+              <a   href="https://www.instagram.com/sakthi_childrens_hospital?igsh=NW1pcHJqcThkaWN0&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"><InstagramOutlined /></a>
             </div>
           </div>
 
@@ -49,11 +51,11 @@ export default function Footer() {
           <div>
             <h3 className={styles.title}>Quick Links</h3>
             <ul className={styles.list}>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li> <Link to="/#home" >Home</Link></li>
+              <li><Link to="/#services" >Services</Link></li>
+              <li><Link to="/#about" >About</Link></li>
+              <li><Link to="/#testimonials" >Testimonials</Link></li>
+              <li><Link to="/#contact" >Contact</Link></li>
             </ul>
           </div>
 

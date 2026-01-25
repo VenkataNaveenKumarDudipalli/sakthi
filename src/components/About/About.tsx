@@ -1,8 +1,10 @@
 import { Row, Col, Button } from 'antd';
 import { CheckCircleOutlined, TrophyOutlined } from '@ant-design/icons';
 import styles from './About.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
@@ -96,7 +98,7 @@ const About = () => {
                 </div>
               </div>
 
-              <Button type="primary" size="large" className={styles.cta}>
+              <Button type="primary" size="large" className={styles.cta} onClick={() => navigate('/learn-more')}  >
                 Learn More About Us
               </Button>
             </div>

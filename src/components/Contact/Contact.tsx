@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
                 <div>
                   <h4>Email Us</h4>
                   <p>
-                    info@sakthichildrenshospital.com
+                  sakthichildrenshospital@gmail.com
                   </p>
                 </div>
               </div>

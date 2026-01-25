@@ -1,85 +1,138 @@
-import { Row, Col, Card, Rate, Avatar } from 'antd';
-import { MessageOutlined } from '@ant-design/icons';
-
+import { Card, Rate, Avatar, Modal } from 'antd';
+import { PlayCircleFilled } from '@ant-design/icons';
+import { useState } from 'react';
 import styles from './Testimonials.module.scss';
 
-type Testimonial = {
-  name: string;
-  role: string;
-  image: string;
-  text: string;
-  rating: number;
-};
+type Testimonial =
+  | {
+      type: 'text';
+      name: string;
+      role: string;
+      image: string;
+      text: string;
+      rating: number;
+    }
+  | {
+      type: 'video';
+      platform: 'instagram' | 'youtube' | 'facebook';
+      name: string;
+      role: string;
+      videoUrl: string;
+    };
 
 const testimonials: Testimonial[] = [
   {
+    type: 'text',
     name: 'Priya Sharma',
     role: 'Mother of 2',
-    image:
-      'https://images.unsplash.com/photo-1628320645101-5a41b1f88c0b?fit=max&w=1080&q=80',
+    image: 'https://images.unsplash.com/photo-1628320645101',
     text:
-      "Sakthi Children's Hospital provided exceptional care for my son. The doctors are patient, caring, and truly understand children's needs.",
+      "Sakthi Children's Hospital provided exceptional care. Doctors were patient and compassionate.",
     rating: 5,
   },
   {
+    type: 'video',
+    platform: 'instagram',
+    name: 'Lakshmi Menon',
+    role: 'Mother of 2',
+    videoUrl:
+      'https://www.instagram.com/reel/DPbT5W3ioU4/?igsh=NXRhMHZnZG0zcnkw',
+  },
+  {
+    type: 'video',
+    platform: 'youtube',
     name: 'Rajesh Kumar',
     role: 'Father of 1',
-    image:
-      'https://images.unsplash.com/photo-1589104759909-e355f8999f7e?fit=max&w=1080&q=80',
-    text:
-      "The emergency care team saved my daughter's life. I am forever grateful for their quick response and professional expertise.",
-    rating: 5,
+    videoUrl: 'https://www.youtube.com/embed/VIDEO_ID',
   },
   {
-    name: 'Lakshmi Menon',
-    role: 'Mother of 3',
-    image:
-      'https://images.unsplash.com/photo-1758691462164-100b5e356169?fit=max&w=1080&q=80',
+    type: 'text',
+    name: 'Anita Verma',
+    role: 'Mother of 1',
+    image: 'https://images.unsplash.com/photo-1580489944761',
     text:
-      'A wonderful hospital with a child-friendly atmosphere. My children actually feel comfortable visiting their doctor here!',
+      'Very clean hospital and friendly doctors. My child felt comfortable.',
     rating: 5,
   },
 ];
 
 const Testimonials = () => {
+  const [open, setOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+
+  const openVideo = (url: string, platform: string) => {
+    if (platform === 'instagram' || platform === 'facebook') {
+      window.open(url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    setVideoUrl(url);
+    setOpen(true);
+  };
+
   return (
     <section id="testimonials" className={styles.testimonials}>
       <div className={styles.container}>
-        {/* Section Header */}
+        {/* HEADER */}
         <div className={styles.header}>
           <span className={styles.tag}>Testimonials</span>
           <h2>What Parents Say About Us</h2>
-          <p>
-            Hear from families who have experienced our dedicated pediatric care.
-          </p>
+          <p>Swipe to see more real experiences</p>
         </div>
 
-        {/* Testimonials Grid */}
-        <Row gutter={[32, 32]}>
+        {/* SCROLL CONTAINER */}
+        <div className={styles.scroller}>
           {testimonials.map((item, index) => (
-            <Col xs={24} md={8} key={index}>
-              <Card className={styles.card}>
-                {/* Quote Icon */}
-                <MessageOutlined className={styles.quoteIcon} />
+            <div className={styles.cardWrapper} key={index}>
+              {item.type === 'text' ? (
+                <Card className={styles.card}>
+                  <Rate disabled defaultValue={item.rating} />
+                  <p className={styles.text}>"{item.text}"</p>
 
-                {/* Rating */}
-                <Rate disabled defaultValue={item.rating} />
-
-                {/* Text */}
-                <p className={styles.text}>"{item.text}"</p>
-
-                {/* Author */}
-                <div className={styles.author}>
-                  <Avatar src={item.image} size={48} />
-                  <div>
-                    <div className={styles.name}>{item.name}</div>
-                    <div className={styles.role}>{item.role}</div>
+                  <div className={styles.author}>
+                    <Avatar src={item.image} size={48} />
+                    <div>
+                      <div className={styles.name}>{item.name}</div>
+                      <div className={styles.role}>{item.role}</div>
+                    </div>
+                  </div>
+                </Card>
+              ) : (
+                <div
+                  className={styles.videoCard}
+                  onClick={() =>
+                    openVideo(item.videoUrl, item.platform)
+                  }
+                >
+                  <PlayCircleFilled className={styles.playIcon} />
+                  <div className={styles.videoInfo}>
+                    <strong>{item.name}</strong>
+                    <span>{item.role}</span>
+                    <span className={styles.watch}>Watch Video</span>
                   </div>
                 </div>
-              </Card>
-            </Col>
+              )}
+            </div>
           ))}
-        </Row>
+        </div>
+
+        {/* VIDEO MODAL */}
+        <Modal
+          open={open}
+          footer={null}
+          onCancel={() => setOpen(false)}
+          width={800}
+          destroyOnClose
+        >
+          {videoUrl && (
+            <iframe
+              src={videoUrl}
+              width="100%"
+              height="480"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          )}
+        </Modal>
       </div>
     </section>
   );

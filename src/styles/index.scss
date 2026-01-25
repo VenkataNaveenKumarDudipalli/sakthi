@@ -34,14 +34,23 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+box-sizing: border-box;
   z-index: 1000;
+  width: calc(100% - 17.4px);
 }
 
 /* Push routed content below fixed bars */
+// .app-content {
+//   margin-top: calc(var(--topbar-height) + var(--header-height));
+//   height: calc(100vh - var(--topbar-height) - var(--header-height));
+//   overflow-y: auto;
+// }
 .app-content {
   margin-top: calc(var(--topbar-height) + var(--header-height));
+  height: auto;          /* ✅ important */
+  overflow: visible;     /* ✅ no inner scroll */
 }
+
 
 /* =================================
    Ant Design Fixes

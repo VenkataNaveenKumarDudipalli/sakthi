@@ -15,17 +15,19 @@ import PrivacyPolicy from './components/Terms/PrivacyPolicy/PrivacyAndPolicy';
 import TermsAndConditions from './components/Terms/TermsCondition/TermsAndCondition';
 import LearnMore from './components/Terms/LearnMore/LearnMore';
 import ScrollToTop from './components/Scroll/Scroll';
+import ScrollToHash from './components/Scroll/ScrollToHash';
 
 const { Content } = Layout;
 
 const App = () => {
   return (
     <Layout className="app-layout">
+      <ScrollToTop />
+      <ScrollToHash />
       {/* Fixed Header Area */}
       <div className="fixed-header">
         <TopInfoBar />
         <Header />
-        <ScrollToTop />
       </div>
 
       {/* Routed Content */}
