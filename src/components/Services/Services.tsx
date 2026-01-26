@@ -5,6 +5,18 @@ import {
 } from '@ant-design/icons';
 
 import styles from './Services.module.scss';
+import immunization from '@/assets/services/immunization.jpg';
+import childNutrition from '@/assets/services/childnutrition.jpg';
+import general from '@/assets/services/general.jpeg';
+import newBorn from '@/assets/services/newborn.jpg';
+import emergency from '@/assets/services/emergency.jpeg';
+import family from '@/assets/services/family.jpg';
+import growth from '@/assets/services/growth.jpeg';
+import infec from '@/assets/services/infec.jpeg';
+
+
+
+
 
 type Service = {
   title: string;
@@ -15,22 +27,22 @@ type Service = {
 const services: Service[] = [
   {
     title: 'General Pediatrics',
-    image: 'https://images.unsplash.com/photo-1600959907703-125ba1374a12',
+    image: general,
     location: 'Children Care',
   },
   {
     title: 'Newborn Care',
-    image: 'https://images.unsplash.com/photo-1576765607924-3f7b8410c3b6',
+    image: newBorn,
     location: 'NICU Support',
   },
   {
     title: 'Child Nutrition',
-    image: 'https://images.unsplash.com/photo-1606813909027-0c5c1a1db39d',
+    image: childNutrition,
     location: 'Diet & Growth',
   },
   {
     title: 'Immunization',
-    image: 'https://images.unsplash.com/photo-1580281657527-47f249e8f8c8',
+    image: immunization,
     location: 'Vaccination',
   },
 
@@ -38,22 +50,22 @@ const services: Service[] = [
 
   {
     title: 'Emergency Care',
-    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa',
+    image: emergency,
     location: '24/7 Support',
   },
   {
     title: 'Growth Monitoring',
-    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e',
+    image: growth,
     location: 'Development',
   },
   {
     title: 'Infectious Diseases',
-    image: 'https://images.unsplash.com/photo-1584036561584-b03c19da874c',
+    image: infec,
     location: 'Special Care',
   },
   {
     title: 'Family Counseling',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d',
+    image: family,
     location: 'Parent Support',
   },
 ];
