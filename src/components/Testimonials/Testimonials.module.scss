@@ -1,126 +1,127 @@
 .testimonials {
-  padding: 80px 0;
-  background: var(--testimonials-bg);
+  background: #fff;
+  padding: 30px 0;
 }
 
 .container {
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
-.header {
+.left {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
+
+  .tag {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin: 12px 0;
+  }
+
+  p {
+    color: #666;
+  }
 }
 
-.tag {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--testimonials-accent-bg);
-  color: var(--primary-color);
-  font-size: 13px;
-  margin-bottom: 12px;
-}
-
-/* ===== HORIZONTAL SCROLL ===== */
-.scroller {
+.cards {
   display: flex;
   gap: 24px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 16px;
+  scroll-behavior: smooth;
+  padding: 10px;
 
+  /* Hide scrollbar – Chrome, Edge, Safari */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar – Firefox */
   scrollbar-width: none;
+
+  /* Hide scrollbar – IE / old Edge */
+  -ms-overflow-style: none;
 }
 
-.scroller::-webkit-scrollbar {
-  display: none;
-}
-
-/* CARD WRAPPER (controls visible cards) */
-.cardWrapper {
-  scroll-snap-align: start;
-  flex: 0 0 calc(33.333% - 16px); /* 3.5 cards desktop */
-}
-
-/* SAME HEIGHT */
-.card,
-.videoCard {
-  height: 280px;
-  border-radius: 20px;
-}
-
-/* TEXT CARD */
 .card {
+  min-width: 320px;
+  height: 320px;
+  background: #fff;
+  border-radius: 16px;
   padding: 24px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .text {
-  font-size: 15px;
-  color: var(--testimonials-text-body);
+  margin-top: 16px;
+  font-size: 14px;
   line-height: 1.6;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  max-height: 140px;
+  overflow-y: auto;
 }
 
-/* VIDEO CARD */
-.videoCard {
-  background: linear-gradient(
-    135deg,
-    var(--testimonials-accent-bg),
-    #ffffff
-  );
+.video {
+  flex: 1;
+  background: #eef8f6;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  gap: 8px;
+
+  svg {
+    font-size: 48px;
+    color: #2aa79b;
+  }
+
+  span {
+    font-weight: 600;
+    color: #2aa79b;
+  }
 }
 
-.playIcon {
-  font-size: 64px;
-  color: var(--primary-color);
-  margin-bottom: 12px;
+.footer {
+  margin-top: auto;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+
+  strong {
+    display: block;
+  }
+
+  span {
+    font-size: 13px;
+    color: #777;
+  }
 }
 
-.videoInfo {
-  text-align: center;
+/* VIDEO MODAL */
+.videoWrapper {
+  position: relative;
+  padding-top: 56.25%;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 }
 
-.watch {
-  font-size: 13px;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-/* AUTHOR */
-.author {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.name {
-  font-weight: 600;
-}
-
-.role {
-  font-size: 13px;
-  color: var(--testimonials-text-muted);
-}
-
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media (max-width: 768px) {
-  .cardWrapper {
-    flex: 0 0 calc(50% - 12px); /* 2.5 cards */
+  .cards {
+    gap: 16px;
   }
 }

@@ -1,4 +1,4 @@
-import { Modal, Form, Input, Button, DatePicker } from 'antd';
+import { Modal, Form, Input, Button,DatePicker } from 'antd';
 import styles from './AppointmentModal.module.scss';
 
 interface Props {
@@ -31,8 +31,19 @@ const AppointmentModal: React.FC<Props> = ({ open, onClose }) => {
         </Form.Item>
 
         <Form.Item label="Preferred Date" name="date">
-          <DatePicker style={{ width: '100%' }} />
-        </Form.Item>
+<DatePicker
+  getPopupContainer={() => document.body}
+  placement="bottomLeft"
+  popupAlign={{
+    points: ['tl', 'bl'],
+    offset: [0, 4],
+    overflow: {
+      adjustX: false,
+      adjustY: false, // ✅ DISABLE AUTO FLIP
+    },
+  }}
+  style={{ width: '100%' }}
+/>        </Form.Item>
 
         <Form.Item label="Message" name="message">
           <Input.TextArea

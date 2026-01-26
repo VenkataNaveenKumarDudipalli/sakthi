@@ -34,11 +34,12 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Book Appointment */}
-        <button
+    
+          <button
           className={styles.appointmentBtn}
           onClick={() => setAppointmentOpen(true)}
         >
-          Book Appointment
+          Book Appointment 📅
         </button>
 
         {/* Hamburger */}
@@ -68,8 +69,7 @@ const Header: React.FC = () => {
               setAppointmentOpen(true);
             }}
           >
-            Book Appointment
-          </button>
+ Book Appointment 📅          </button>
         </div>
       )}
 

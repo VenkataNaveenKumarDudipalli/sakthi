@@ -1,139 +1,142 @@
-import { Card, Rate, Avatar, Modal } from 'antd';
-import { PlayCircleFilled } from '@ant-design/icons';
 import { useState } from 'react';
+import { Rate, Modal } from 'antd';
+import { PlayCircleFilled } from '@ant-design/icons';
 import styles from './Testimonials.module.scss';
+import type { JSX } from 'react/jsx-runtime';
 
 type Testimonial =
   | {
       type: 'text';
       name: string;
       role: string;
-      image: string;
-      text: string;
       rating: number;
+      text: string;
     }
   | {
       type: 'video';
-      platform: 'instagram' | 'youtube' | 'facebook';
+      platform: 'youtube' | 'instagram' | 'facebook';
       name: string;
       role: string;
-      videoUrl: string;
+      videoId: string;
     };
 
 const testimonials: Testimonial[] = [
   {
     type: 'text',
-    name: 'Priya Sharma',
-    role: 'Mother of 2',
-    image: 'https://images.unsplash.com/photo-1628320645101',
-    text:
-      "Sakthi Children's Hospital provided exceptional care. Doctors were patient and compassionate.",
+    name: 'Akhila 6942',
+    role: 'Google Review',
     rating: 5,
-  },
-  {
-    type: 'video',
-    platform: 'instagram',
-    name: 'Lakshmi Menon',
-    role: 'Mother of 2',
-    videoUrl:
-      'https://www.instagram.com/reel/DPbT5W3ioU4/?igsh=NXRhMHZnZG0zcnkw',
+    text: `I would like to express my heartfelt gratitude to the doctors and staff
+    for their exceptional care during my pregnancy. The experience was truly
+    comforting and professional.`,
   },
   {
     type: 'video',
     platform: 'youtube',
     name: 'Rajesh Kumar',
     role: 'Father of 1',
-    videoUrl: 'https://www.youtube.com/embed/VIDEO_ID',
+    videoId: 'VIDEO_ID_HERE',
   },
   {
-    type: 'text',
-    name: 'Anita Verma',
-    role: 'Mother of 1',
-    image: 'https://images.unsplash.com/photo-1580489944761',
-    text:
-      'Very clean hospital and friendly doctors. My child felt comfortable.',
-    rating: 5,
+    type: 'video',
+    platform: 'instagram',
+    name: 'Lakshmi Menon',
+    role: 'Mother of 2',
+    videoId: 'DPbT5W3ioU4',
+  },
+  {
+    type: 'video',
+    platform: 'facebook',
+    name: 'Siva Rao',
+    role: 'Parent',
+    videoId: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=VIDEO_ID',
   },
 ];
 
 const Testimonials = () => {
   const [open, setOpen] = useState(false);
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<JSX.Element | null>(null);
 
-  const openVideo = (url: string, platform: string) => {
-    if (platform === 'instagram' || platform === 'facebook') {
-      window.open(url, '_blank', 'noopener,noreferrer');
-      return;
+  const openVideo = (item: Testimonial) => {
+    if (item.type !== 'video') return;
+
+    let iframe = null;
+
+    if (item.platform === 'youtube') {
+      iframe = (
+        <iframe
+          src={`https://www.youtube.com/embed/${item.videoId}`}
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        />
+      );
     }
-    setVideoUrl(url);
+
+    if (item.platform === 'instagram') {
+      iframe = (
+        <iframe
+          src={`https://www.instagram.com/reel/${item.videoId}/embed`}
+          allow="autoplay; encrypted-media"
+        />
+      );
+    }
+
+    if (item.platform === 'facebook') {
+      iframe = <iframe src={item.videoId} allow="autoplay" />;
+    }
+
+    setActiveVideo(iframe);
     setOpen(true);
   };
 
   return (
     <section id="testimonials" className={styles.testimonials}>
       <div className={styles.container}>
-        {/* HEADER */}
-        <div className={styles.header}>
+        {/* LEFT CONTENT */}
+        <div className={styles.left}>
           <span className={styles.tag}>Testimonials</span>
           <h2>What Parents Say About Us</h2>
-          <p>Swipe to see more real experiences</p>
+          <p>Real experiences from families who trust our care.</p>
         </div>
 
-        {/* SCROLL CONTAINER */}
-        <div className={styles.scroller}>
+        {/* CARDS */}
+        <div className={styles.cards}>
           {testimonials.map((item, index) => (
-            <div className={styles.cardWrapper} key={index}>
+            <div className={styles.card} key={index}>
               {item.type === 'text' ? (
-                <Card className={styles.card}>
+                <>
                   <Rate disabled defaultValue={item.rating} />
-                  <p className={styles.text}>"{item.text}"</p>
-
-                  <div className={styles.author}>
-                    <Avatar src={item.image} size={48} />
-                    <div>
-                      <div className={styles.name}>{item.name}</div>
-                      <div className={styles.role}>{item.role}</div>
-                    </div>
-                  </div>
-                </Card>
+                  <div className={styles.text}>"{item.text}"</div>
+                </>
               ) : (
                 <div
-                  className={styles.videoCard}
-                  onClick={() =>
-                    openVideo(item.videoUrl, item.platform)
-                  }
+                  className={styles.video}
+                  onClick={() => openVideo(item)}
                 >
-                  <PlayCircleFilled className={styles.playIcon} />
-                  <div className={styles.videoInfo}>
-                    <strong>{item.name}</strong>
-                    <span>{item.role}</span>
-                    <span className={styles.watch}>Watch Video</span>
-                  </div>
+                  <PlayCircleFilled />
+                  <span>Watch Video</span>
                 </div>
               )}
+
+              <div className={styles.footer}>
+                <strong>{item.name}</strong>
+                <span>{item.role}</span>
+              </div>
             </div>
           ))}
         </div>
-
-        {/* VIDEO MODAL */}
-        <Modal
-          open={open}
-          footer={null}
-          onCancel={() => setOpen(false)}
-          width={800}
-          destroyOnClose
-        >
-          {videoUrl && (
-            <iframe
-              src={videoUrl}
-              width="100%"
-              height="480"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          )}
-        </Modal>
       </div>
+
+      {/* VIDEO MODAL */}
+      <Modal
+        open={open}
+        footer={null}
+        onCancel={() => setOpen(false)}
+        width={800}
+        destroyOnClose
+      >
+        <div className={styles.videoWrapper}>{activeVideo}</div>
+      </Modal>
     </section>
   );
 };

@@ -16,16 +16,38 @@ import TermsAndConditions from './components/Terms/TermsCondition/TermsAndCondit
 import LearnMore from './components/Terms/LearnMore/LearnMore';
 import ScrollToTop from './components/Scroll/Scroll';
 import ScrollToHash from './components/Scroll/ScrollToHash';
+import { useEffect,useState } from 'react';
 
 const { Content } = Layout;
 
 const App = () => {
+  const el= document.getElementById('root')?.offsetWidth;
+  const [width, setWidth] = useState<number>(el || window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+        const el= document.getElementById('root')?.offsetWidth;
+        if(el){
+            setWidth(el);
+        }  
+    };
+handleResize(); // Set initial width
+    window.addEventListener('resize', handleResize);
+
+    // ✅ cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
   return (
     <Layout className="app-layout">
       <ScrollToTop />
       <ScrollToHash />
       {/* Fixed Header Area */}
-      <div className="fixed-header">
+      <div className="fixed-header" style={{
+        width: `${width}px`
+      }}>
         <TopInfoBar />
         <Header />
       </div>

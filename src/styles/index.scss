@@ -36,7 +36,6 @@ body {
   left: 0;
 box-sizing: border-box;
   z-index: 1000;
-  width: calc(100% - 17.4px);
 }
 
 /* Push routed content below fixed bars */
@@ -112,3 +111,18 @@ box-sizing: border-box;
     margin-top: calc(var(--topbar-height) + var(--header-height));
   }
 }
+
+.ant-picker-dropdown {
+  max-height: 360px;
+  overflow: hidden;
+}
+.ant-picker-panel {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.ant-picker-time-panel-column {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+

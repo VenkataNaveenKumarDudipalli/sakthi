@@ -1,95 +1,100 @@
-import { Row, Col, Card } from 'antd';
+import { Row, Col } from 'antd';
 import {
   MedicineBoxOutlined,
-  HeartOutlined,
-  SafetyOutlined,
-  TeamOutlined,
-  ThunderboltOutlined,
-  ExperimentOutlined,
+  PhoneOutlined,
 } from '@ant-design/icons';
 
 import styles from './Services.module.scss';
 
 type Service = {
-  icon: React.ReactNode;
   title: string;
-  description: string;
+  image: string;
+  location: string;
 };
 
 const services: Service[] = [
   {
-    icon: <MedicineBoxOutlined />,
     title: 'General Pediatrics',
-    description:
-      'Comprehensive healthcare services for infants, children, and adolescents with expert diagnosis and treatment.',
+    image: 'https://images.unsplash.com/photo-1600959907703-125ba1374a12',
+    location: 'Children Care',
   },
   {
-    icon: <TeamOutlined />,
     title: 'Newborn Care',
-    description:
-      'Specialized care for newborns including health assessments, vaccinations, and developmental monitoring.',
+    image: 'https://images.unsplash.com/photo-1576765607924-3f7b8410c3b6',
+    location: 'NICU Support',
   },
   {
-    icon: <HeartOutlined />,
-    title: 'Pediatric Cardiology',
-    description:
-      'Advanced cardiac care for children with heart conditions, from diagnosis to ongoing treatment.',
+    title: 'Child Nutrition',
+    image: 'https://images.unsplash.com/photo-1606813909027-0c5c1a1db39d',
+    location: 'Diet & Growth',
   },
   {
-    icon: <ExperimentOutlined />,
     title: 'Immunization',
-    description:
-      'Complete vaccination programs to protect children from preventable diseases.',
+    image: 'https://images.unsplash.com/photo-1580281657527-47f249e8f8c8',
+    location: 'Vaccination',
   },
+
+  /* 🔥 NEW SERVICES */
+
   {
-    icon: <ThunderboltOutlined />,
-    title: 'Growth Monitoring',
-    description:
-      'Regular health checkups and developmental milestone tracking for optimal growth.',
-  },
-  {
-    icon: <SafetyOutlined />,
     title: 'Emergency Care',
-    description:
-      '24/7 pediatric emergency services with specialized staff and equipment for children.',
+    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa',
+    location: '24/7 Support',
   },
   {
-    icon: <MedicineBoxOutlined />,
+    title: 'Growth Monitoring',
+    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e',
+    location: 'Development',
+  },
+  {
     title: 'Infectious Diseases',
-    description:
-      'Expert treatment and management of childhood infections and communicable diseases.',
+    image: 'https://images.unsplash.com/photo-1584036561584-b03c19da874c',
+    location: 'Special Care',
   },
   {
-    icon: <TeamOutlined />,
     title: 'Family Counseling',
-    description:
-      'Support and guidance for parents on child health, nutrition, and development.',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d',
+    location: 'Parent Support',
   },
 ];
+
 
 const Services = () => {
   return (
     <section id="services" className={styles.services}>
       <div className={styles.container}>
-        {/* Section Header */}
         <div className={styles.header}>
-          <span className={styles.tag}>Our Services</span>
-          <h2>Comprehensive Pediatric Care</h2>
-          <p>
-            From routine checkups to specialized treatments, we provide complete
-            healthcare solutions for children of all ages.
-          </p>
+          <h2>Our Services</h2>
+          <div className={styles.underline} />
         </div>
 
-        {/* Services Grid */}
-        <Row gutter={[24, 24]}>
+        <Row gutter={[32, 32]}>
           {services.map((service, index) => (
             <Col xs={24} sm={12} lg={6} key={index}>
-              <Card className={styles.card} bordered>
-                <div className={styles.icon}>{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </Card>
+              <div className={styles.card}>
+                {/* IMAGE */}
+                <div className={styles.imageWrapper}>
+                  <img src={service.image} alt={service.title} />
+                </div>
+
+                {/* CONTENT */}
+                <div className={styles.content}>
+                  <h3>{service.title}</h3>
+                  <div className={styles.divider} />
+
+                  <div className={styles.footer}>
+                    <div className={styles.meta}>
+                      <MedicineBoxOutlined />
+                      <span>{service.location}</span>
+                    </div>
+
+                    <div className={styles.call}>
+                      <PhoneOutlined />
+                      <span>Call Us</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Col>
           ))}
         </Row>
